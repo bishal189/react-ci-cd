@@ -64,5 +64,5 @@ jobs:
       - name: Output contents
         run: ls -R ./dist
 
-      - name: Deploy site
+      - name: Deploy sites
         run: echo "Deploying..."
