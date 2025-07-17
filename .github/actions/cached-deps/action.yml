@@ -1,0 +1,19 @@
+name: Setup Node
+description: Common steps for checking out code, caching and installing deps
+runs:
+  using: "composite"
+  steps:
+    - name: Get code
+      uses: actions/checkout@v4
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: npm ci
