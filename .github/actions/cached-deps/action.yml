@@ -6,6 +6,10 @@ inputs:
     description: "Enable caching for node_modules"
     required: false
     default: "true"
+outputs:
+  cache-hit:
+    description: "Indicates whether the cache was hit"
+    value: ${{ steps.cache.outputs.cache-hit }}
 
 runs:
   using: composite
