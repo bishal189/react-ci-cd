@@ -1,10 +1,12 @@
 name: Setup Node
 description: Common steps for checking out code, caching dependencies, and installing packages
+
 inputs:
   caching:
-    description: "Custom message to print"
+    description: "Enable caching for node_modules"
     required: false
     default: "true"
+
 runs:
   using: composite
   steps:
@@ -12,7 +14,7 @@ runs:
       uses: actions/checkout@v4
 
     - name: Cache dependencies
-      if: inputs.caching=='true'
+      if: ${{ inputs.caching == 'true' }}
       id: cache
       uses: actions/cache@v4
       with:
@@ -20,6 +22,6 @@ runs:
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install dependencies
-      if: steps.cache.outputs.cache-hit != 'true' || input.caching!='true'
+      if: ${{ steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true' }}
       shell: bash
       run: npm ci
