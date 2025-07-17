@@ -16,7 +16,7 @@ jobs:
         id: setup
         uses: ./.github/actions/cached-deps
         with:
-          caching: "false"
+          caching: "true"
 
       - name: Print cache status
         run: |
