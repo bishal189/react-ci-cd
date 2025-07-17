@@ -20,7 +20,7 @@ jobs:
 
       - name: Print cache status
         run: |
-        echo "Cache hit: ${{ steps.setup.outputs.cache-hit }}"
+          echo "Cache hit: ${{ steps.setup.outputs.cache-hit }}"
 
       - name: Lint code
         run: npm run lint
