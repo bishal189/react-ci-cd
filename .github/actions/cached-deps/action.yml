@@ -1,8 +1,7 @@
 name: Setup Node
-description: Common steps for checking out code, caching and installing dependencies
-
+description: Common steps for checking out code, caching dependencies, and installing packages
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Get code
       uses: actions/checkout@v4

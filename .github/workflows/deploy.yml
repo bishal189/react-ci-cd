@@ -9,6 +9,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Load and Cache dependencies
         uses: ./.github/actions/cached-deps
 
@@ -18,6 +21,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Load and Cache dependencies
         uses: ./.github/actions/cached-deps
 
@@ -36,6 +42,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Load and Cache dependencies
         uses: ./.github/actions/cached-deps
 
@@ -52,7 +61,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Get build artifacts
@@ -64,5 +73,5 @@ jobs:
       - name: Output contents
         run: ls -R ./dist
 
-      - name: Deploy sites
+      - name: Deploy site
         run: echo "Deploying..."
