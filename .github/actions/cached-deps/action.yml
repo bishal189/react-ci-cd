@@ -1,5 +1,5 @@
 name: Setup Node
-description: Common steps for checking out code, caching and installing deps
+description: Common steps for checking out code, caching and installing dependencies
 runs:
   using: "composite"
   steps:
