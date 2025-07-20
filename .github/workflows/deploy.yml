@@ -77,19 +77,23 @@ jobs:
           name: dist-files
           path: ./dist
 
-      - name: Output contents
-        run: ls -R ./dist
+      # - name: Display Javascript codes
+      #   uses: ./.github/actions/deploy-s3-javascript
+      #   with:
+      #     bucket-name: "name of the bucket write here ..........."
+      #     dist-folder: "./dist"
+      #     bucket-region: "name of the region where bucket is created...."
 
       - name: Deploy site
         run: echo "Deploying..."
 
-  informations:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  # informations:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
 
-      - name: Display Javascript codes
-        uses: ./.github/actions/deploy-s3-javascript
-        with:
-          name: "bishal"
+  #     - name: Display Javascript codes
+  #       uses: ./.github/actions/deploy-s3-javascript
+  #       with:
+  #         name: "bishal"

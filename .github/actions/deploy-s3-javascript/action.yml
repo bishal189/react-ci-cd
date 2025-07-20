@@ -1,5 +1,16 @@
 name: "Deploy to Aws"
 description: "Deploying websites to Aws s3 bucket "
+inputs:
+  bucket-name:
+    description: "s3 bucket name"
+    required: true
+  bucket-region:
+    description: "bucket descriptions"
+    required: false
+    default: "us-east-1"
+  dist-folder:
+    description: "The actual files to be deployed"
+    required: true
 runs:
   using: "node16"
   main: "index.js"
