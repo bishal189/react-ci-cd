@@ -82,3 +82,12 @@ jobs:
 
       - name: Deploy site
         run: echo "Deploying..."
+
+  informations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display Javascript codes
+        uses: ./.github/actions/deploy-s3-javascript
