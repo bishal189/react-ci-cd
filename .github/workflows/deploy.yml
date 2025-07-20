@@ -91,3 +91,5 @@ jobs:
 
       - name: Display Javascript codes
         uses: ./.github/actions/deploy-s3-javascript
+        with:
+          name: "bishal"
